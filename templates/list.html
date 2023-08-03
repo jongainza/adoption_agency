@@ -1,0 +1,25 @@
+    {% extends "base.html" %} {% block title %} List of pets {% endblock %} {% block
+content %}
+    <h1>All Pets</h1>
+
+    {% for pet in pets %}
+    <div>
+      {% if pet.photo %}
+      <img src="{{pet.photo}}" alt="Picture of {{pet.name}}" />
+      {% else %}
+      <p>No photo available</p>
+      {% endif %} {% if pet.available %}
+      <p><a href="/{{pet.id}}">{{pet.name}} </a>is <b>Available!</b></p>
+      {% else %}
+      <p>
+        Sorry <a href="/{{pet.id}}"></a>{{pet.name}} is not available at
+        this time.
+      </p>
+    </div>
+    {% endif %} {% endfor %}
+
+    <form action="/add">
+      <input type="submit" value="Add New Pet" />
+    </form>
+  </body>
+{% endblock %}

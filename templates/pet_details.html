@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Details</title>
+  </head>
+  <body>
+    <h1>{{pet.name}}</h1>
+    <p>Species: {{pet.species}}</p>
+    <p>Age: {{pet.age}}</p>
+    <img src="{{pet.photo}}" alt="Photo of {{pet.name}}" />
+
+    <section>
+      <a href="/">Go back to list</a>
+    </section>
+
+    <section>
+      <form method="GET" action="/{{pet.id}}">
+        <button type="submit">Edit</button>
+      </form>
+      <form method="POST" action="/delete/{{pet.id}}">
+        <button type="submit">Delete</button>
+      </form>
+    </section>
+  </body>
+</html>
